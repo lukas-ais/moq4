@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyVersion("4.0.10818.0")]
 [assembly: AssemblyFileVersion("4.0.0.0")]
+[assembly: AssemblyInformationalVersion("from https://github.com/lukas-ais/moq4.git")]
 
 [assembly: ComVisible(false)]
 [assembly: NeutralResourcesLanguage("en")]
