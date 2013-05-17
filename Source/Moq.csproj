@@ -55,13 +55,14 @@
     <Reference Condition="'$(TargetFrameworkVersion)' == 'v3.5'" Include="Castle.Core, Version=2.5.0.219, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\Castle\bin-NET35\Castle.Core.dll</HintPath>
-			<Visible>False</Visible>
+      <Visible>False</Visible>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\BuildVersion.cs" />
     <Compile Include="ConditionalContext.cs" />
     <Compile Include="Language\ICallback.cs" />
     <Compile Include="Language\ICallback.Generated.cs">
