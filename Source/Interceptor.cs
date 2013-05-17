@@ -70,7 +70,14 @@ namespace Moq
 
 		internal IEnumerable<ICallContext> ActualCalls
 		{
-			get { return this.actualInvocations; }
+			get
+			{
+				lock (actualInvocations)
+				{
+					var result = actualInvocations.ToArray();
+					return result;
+				}
+			}
 		}
 
 		internal Mock Mock { get; private set; }
@@ -203,7 +210,10 @@ namespace Moq
 				// mode we use to evaluate delegates by actually running them, 
 				// we don't want to count the invocation, or actually run 
 				// previous setups.
-				actualInvocations.Add(invocation);
+				lock (actualInvocations)
+				{
+					actualInvocations.Add(invocation);
+				}
 			}
 
 			var call = FluentMockContext.IsActive ? (IProxyCall)null : orderedCalls.LastOrDefault(c => c.Matches(invocation));
